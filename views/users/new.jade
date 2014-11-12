@@ -1,0 +1,12 @@
+extends ../layout
+block content
+    h1 New User
+    p Why not create a user...
+
+    form(action="/users", method="POST")
+        div
+            label Name
+            br
+            input(type="text", name="name")
+        div
+            button Create User

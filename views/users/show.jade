@@ -1,0 +1,5 @@
+extends ../layout
+block content
+    h1 #{user.name}
+    p View a Single User
+    a(href="/users/" + user.id + "/edit") Edit #{user.name}
