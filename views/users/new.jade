@@ -5,8 +5,16 @@ block content
 
     form(action="/users", method="POST")
         div
-            label Name
+            label Username
             br
-            input(type="text", name="name")
+            input(type="text", name="username")
+        div
+            label First Name
+            br
+            input(type="text", name="first_name")
+        div
+            label Last Name
+            br
+            input(type="text", name="last_name")
         div
             button Create User
