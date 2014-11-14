@@ -4,6 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+
+// Load private config (not tracked in repository)
+var config_private = require('./config_private');
+
+/**
+ * Connect to MongoDB
+ */
+mongoose.connect(config_private.mongodb.connect_string);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+    console.log('Success - Connected to MongoDB!');
+});
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
