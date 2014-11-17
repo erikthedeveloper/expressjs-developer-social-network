@@ -20,16 +20,6 @@ db.once('open', function callback () {
     console.log('Success - Connected to MongoDB!');
 });
 
-/**
- * Define MongoDB Schema/Models
- */
-var userSchema = mongoose.Schema({
-    username: String,
-    first_name: String,
-    last_name: String
-});
-var User = mongoose.model('User', userSchema);
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
