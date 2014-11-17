@@ -4,12 +4,18 @@ html
     title= title
     link(rel='stylesheet', href='/dist/app.css')
   body
-    
-    ul
-      li
-        a(href='/users') Users
-      li
-        a(href='/users/new') Users New
+
+    nav(class="navbar navbar-default")
+      div(class="container")
+        div(class="navbar-header")
+          a(class="navbar-brand") A Brand
+
+        div(class="collapse navbar-collapse")
+          ul(class="nav navbar-nav navbar-right")
+            li
+              a(href='/users') Users
+            li
+              a(href='/users/new') Users New
 
     div(class="container")
       block content

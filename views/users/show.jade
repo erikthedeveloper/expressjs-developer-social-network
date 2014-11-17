@@ -1,5 +1,5 @@
 extends ../layout
 block content
-    h1 #{user.name}
-    p View a Single User
+    h1 @#{user.username} <small style="font-size: 50%;">(#{user.first_name} #{user.last_name})</small>
+    p View a Single User.
     a(href="/users/" + user.id + "/edit") Edit #{user.first_name}
