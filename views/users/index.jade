@@ -4,6 +4,6 @@ block content
     p Each users....
     ul
     each user in users
-        li
-            a(href="/users/@" + user.username) @#{user.username}
+        li: a(href="/users/@" + user.username).
+            @#{user.username}
 
