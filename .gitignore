@@ -1,1 +1,3 @@
 config_private.js
+public/dist/
+bower_components/

@@ -2,11 +2,14 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/dist/app.css')
   body
+    
     ul
       li
         a(href='/users') Users
       li
         a(href='/users/new') Users New
-    block content
+
+    div(class="container")
+      block content
