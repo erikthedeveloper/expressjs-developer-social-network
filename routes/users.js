@@ -56,8 +56,13 @@ router.get('/@:username/edit', function(req, res) {
 });
 
 /* users.update */
-router.put('/@:username', function(req, res) {
-    res.send("Updating user! (" + req.user.name + ")");
+router.post('/@:username', function(req, res) {
+    var user = req.user;
+    user.first_name = req.param('first_name');
+    user.last_name = req.param('last_name');
+    user.save(function (err) {
+        res.redirect("/users/@" + user.username);
+    });
 });
 
 /* users.destroy */

@@ -1,9 +1,11 @@
 extends ../layout
 block content
-    h1 Index All Users
-    p Each users....
-    ul
+    h1 A Bunch of Great Users
+
+    ul.list-group
     each user in users
-        li: a(href="/users/@" + user.username).
-            @#{user.username}
+        li.text-center.list-group-item.col-sm-4: a(href="/users/@" + user.username)
+            |#{user.first_name} #{user.last_name}
+            img.center-block.img-responsive.img-circle(src="http://lorempixel.com/150/150/people/" + (Math.floor(Math.random() * (10 - 1)) + 1))
+            h4 @#{user.username}
 

@@ -1,7 +1,20 @@
 extends ../layout
 block content
     h1 @#{user.username}
-    p.
-        View a Single User.
-    a(href="/users/" + user.id + "/edit").
-        Edit #{user.first_name}
+        small (#{user.first_name} #{user.last_name})
+
+    .row
+        .col-sm-8
+            label Username:
+            span= " @" + user.username
+            br
+            label First Name:
+            span= " " + user.first_name
+            br
+            label Last Name:
+            span= " " + user.last_name
+            br
+            a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit").
+                Edit #{user.first_name}
+        .col-sm-4
+            img.center-block.img-responsive.img-circle(src="http://lorempixel.com/400/400/people/")
