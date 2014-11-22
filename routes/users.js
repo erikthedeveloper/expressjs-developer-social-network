@@ -41,7 +41,7 @@ router.post('/', function(req, res) {
   var new_user = User(user_data);
 
   new_user.save(function(err, created_user) {
-      res.send(created_user);
+    res.redirect("/users/@" + new_user.username);
   });
 });
 
@@ -67,7 +67,12 @@ router.post('/@:username', function(req, res) {
 
 /* users.destroy */
 router.delete('/@:username', function(req, res) {
-    res.send("Destroy! (" + req.user.name + ")");
+    var user = req.user;
+    user.remove(function(err) {
+        if (err)
+            return res.send("Error destroying: " + req.user.username);
+        res.send("Destroyed! (" + req.user.username + ")");
+    });
 });
 
 module.exports = router;
