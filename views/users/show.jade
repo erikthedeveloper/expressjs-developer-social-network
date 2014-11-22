@@ -1,31 +1,31 @@
 extends ../layout
 block content
-    h1 @#{user.username}
-        small (#{user.first_name} #{user.last_name})
+  h1 @#{user.username}
+    small (#{user.first_name} #{user.last_name})
 
-    .row
-        .col-sm-8
-            .clear-fix
-                a.btn.btn-small.btn-danger.pull-right(
-                href="/users/@" + user.username + "/edit",
-                data-http-method="DELETE"
-                data-confirm-msg="Destroy @#{user.username}?!"
-                data-ajax-success="redirect_to_users"
-                )
-                    span.glyphicon.glyphicon-remove
-                    |&nbsp;Destroy @#{user.username}
-                a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit")
-                    span.glyphicon.glyphicon-edit
-                    |&nbsp;Edit @#{user.username}
-            hr
-            label Username:
-            span= " @" + user.username
-            br
-            label First Name:
-            span= " " + user.first_name
-            br
-            label Last Name:
-            span= " " + user.last_name
-            br
-        .col-sm-4
-            img.center-block.img-responsive.img-circle(src="http://lorempixel.com/400/400/people/")
+  .row
+    .col-sm-8
+      .clear-fix
+        a.btn.btn-small.btn-danger.pull-right(
+        href="/users/@" + user.username + "/edit",
+        data-http-method="DELETE"
+        data-confirm-msg="Destroy @#{user.username}?!"
+        data-ajax-success="redirect_to_users"
+        )
+          span.glyphicon.glyphicon-remove
+          | &nbsp;Destroy @#{user.username}
+        a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit")
+          span.glyphicon.glyphicon-edit
+          | &nbsp;Edit @#{user.username}
+      hr
+      label Username:
+      span= " @" + user.username
+      br
+      label First Name:
+      span= " " + user.first_name
+      br
+      label Last Name:
+      span= " " + user.last_name
+      br
+    .col-sm-4
+      img.center-block.img-responsive.img-circle(src="http://lorempixel.com/400/400/people/")

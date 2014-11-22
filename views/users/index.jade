@@ -1,28 +1,28 @@
 extends ../layout
 block content
-    h1 A Bunch of Great Users
+  h1 A Bunch of Great Users
 
-    ul.list-group
-    each user in users
-        li.text-center.list-group-item.col-sm-4
-            |#{user.first_name} #{user.last_name}
-            img.center-block.img-responsive.img-circle(src="http://lorempixel.com/150/150/people/" + (Math.floor(Math.random() * (10 - 1)) + 1))
-            h4
-                a.btn.btn-small.btn-link(href="/users/@" + user.username) @#{user.username}
-            .btn-group
-                a.btn.btn-small.btn-primary(href="/users/@" + user.username)
-                    span.glyphicon.glyphicon-user
-                    |&nbsp;View
-                a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit")
-                    span.glyphicon.glyphicon-edit
-                    |&nbsp;Edit
-            .btn-group
-                a.btn.btn-small.btn-danger.pull-right(
-                href="/users/@" + user.username + "/edit",
-                data-http-method="DELETE"
-                data-confirm-msg="Destroy @#{user.username}?!"
-                data-ajax-success="redirect_to_users"
-                )
-                    span.glyphicon.glyphicon-remove
-                    |&nbsp;Destroy
+  ul.list-group
+  each user in users
+    li.text-center.list-group-item.col-sm-4
+      | #{user.first_name} #{user.last_name}
+      img.center-block.img-responsive.img-circle(src="http://lorempixel.com/150/150/people/" + (Math.floor(Math.random() * (10 - 1)) + 1))
+      h4
+        a.btn.btn-small.btn-link(href="/users/@" + user.username) @#{user.username}
+      .btn-group
+        a.btn.btn-small.btn-primary(href="/users/@" + user.username)
+          span.glyphicon.glyphicon-user
+          | &nbsp;View
+        a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit")
+          span.glyphicon.glyphicon-edit
+          | &nbsp;Edit
+      .btn-group
+        a.btn.btn-small.btn-danger.pull-right(
+        href="/users/@" + user.username + "/edit",
+        data-http-method="DELETE"
+        data-confirm-msg="Destroy @#{user.username}?!"
+        data-ajax-success="redirect_to_users"
+        )
+          span.glyphicon.glyphicon-remove
+          | &nbsp;Destroy
 

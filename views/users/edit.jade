@@ -1,33 +1,33 @@
 extends ../layout
 block content
-    h1
-        Edit @#{user.username}
-        small (#{user.first_name} #{user.last_name})
-    a(href="/users/@" + user.username) View @#{user.username}
+  h1
+    Edit @#{user.username}
+    small (#{user.first_name} #{user.last_name})
+  a(href="/users/@" + user.username) View @#{user.username}
 
-    form.form(action="/users/@" + user.username, method="POST")
-        .row
-            .col-sm-6: .form-group
-                label.sr-only Username
-                input.input-lg.form-control(type="text", name="username", placeholder="Username")
-            .col-sm-6: .form-group
-                label.sr-only Email
-                input.input-lg.form-control(type="email", name="email", placeholder="Email", disabled)
-        .row
-            .col-sm-6: .form-group
-                label.sr-only First Name
-                input.input-lg.form-control(type="text", name="first_name", placeholder="First Name")
-            .col-sm-6: .form-group
-                label.sr-only Last Name
-                input.input-lg.form-control(type="text", name="last_name", placeholder="Last Name")
-        .row
-            .col-sm-6: .form-group
-                label.sr-only Password
-                input.input-lg.form-control(type="password", name="password", placeholder="Password", disabled)
-            .col-sm-6: .form-group
-                label.sr-only Confirm
-                input.input-lg.form-control(type="password", name="password_confirmation", placeholder="Confirm", disabled)
-        .row
-            .col-xs-12.col-sm-4: .form-group
-                button.btn.btn-lg.btn-primary.btn-block.
-                    Update
+  form.form(action="/users/@" + user.username, method="POST")
+    .row
+      .col-sm-6: .form-group
+        label.sr-only Username
+        input.input-lg.form-control(type="text", name="username", placeholder="Username")
+      .col-sm-6: .form-group
+        label.sr-only Email
+        input.input-lg.form-control(type="email", name="email", placeholder="Email", disabled)
+    .row
+      .col-sm-6: .form-group
+        label.sr-only First Name
+        input.input-lg.form-control(type="text", name="first_name", placeholder="First Name")
+      .col-sm-6: .form-group
+        label.sr-only Last Name
+        input.input-lg.form-control(type="text", name="last_name", placeholder="Last Name")
+    .row
+      .col-sm-6: .form-group
+        label.sr-only Password
+        input.input-lg.form-control(type="password", name="password", placeholder="Password", disabled)
+      .col-sm-6: .form-group
+        label.sr-only Confirm
+        input.input-lg.form-control(type="password", name="password_confirmation", placeholder="Confirm", disabled)
+    .row
+      .col-xs-12.col-sm-4: .form-group
+        button.btn.btn-lg.btn-primary.btn-block.
+          Update
