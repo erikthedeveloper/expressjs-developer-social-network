@@ -3,6 +3,18 @@ var gulp       = require('gulp'),
     //run        = require('gulp-run'),
     sass       = require('gulp-sass');
 
+gulp.task('js_vendor', function () {
+    gulp.src([
+        'bower_components/jquery/dist/jquery.js',
+        'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'
+    ]).pipe(gulp.dest('public/dist'));
+});
+
+gulp.task('js_main', function () {
+    gulp.src([
+        'assets/scripts/main.js'
+    ]).pipe(gulp.dest('public/dist'));
+});
 
 gulp.task('sass', function () {
     var sass_config = {
@@ -26,7 +38,8 @@ gulp.task('express', function () {
 
 gulp.task('watch', function () {
     livereload.listen();
-    gulp.watch('assets/**/*.scss', ['sass']);
+    gulp.watch('assets/styles/**/*.scss', ['sass']);
+    gulp.watch('assets/scripts/**/*.js', ['js_main']);
     gulp.watch([
       'public/**',
       'views/**'
@@ -34,4 +47,9 @@ gulp.task('watch', function () {
     ).on('change', livereload.changed);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', [
+    'js_vendor',
+    'js_main',
+    'sass',
+    'watch'
+]);
