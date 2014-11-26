@@ -18,10 +18,10 @@ block content
           | &nbsp;Edit
       .btn-group
         a.btn.btn-small.btn-danger.pull-right(
-        href="/users/@" + user.username + "/edit",
-        data-http-method="DELETE"
-        data-confirm-msg="Destroy @#{user.username}?!"
-        data-ajax-success="redirect_to_users"
+          href="/users/@" + user.username,
+          data-http-method="DELETE"
+          data-confirm-msg="Destroy @#{user.username}?!"
+          data-ajax-success="redirect_to_users"
         )
           span.glyphicon.glyphicon-remove
           | &nbsp;Destroy

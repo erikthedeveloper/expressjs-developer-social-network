@@ -31,18 +31,18 @@ var App = {
 
     httpSpoofedLinkClickHandler: function(event) {
 
-      var link = $(this);
-      var method = link.data('http-method').toUpperCase();
+      var $link = $(this);
+      var method = $link.data('http-method').toUpperCase();
 
       if ($.inArray(method, ['PUT', 'DELETE']) == -1)
         return;
 
       event.preventDefault();
 
-      if (!HttpSpoofer.verifyConfirm(link))
+      if (!HttpSpoofer.verifyConfirm($link))
         return false;
 
-      $.ajax(link.href, {
+      $.ajax($link.attr('href'), {
         method: method
       })
           .done(HttpSpoofer.getAjaxSuccess())
@@ -52,19 +52,19 @@ var App = {
 
     getAjaxSuccess: function() {
       var callback =
-            // TODO: magicallyResolveCallback('ajaxSuccess');
-              function() {
-                alert("getAjaxSuccess called!")
-              };
+        // TODO: magicallyResolveCallback('ajaxSuccess');
+          function() {
+            window.location = "/users";
+          };
       return callback;
     },
 
     getAjaxFail: function() {
       var callback =
-            // TODO: magicallyResolveCallback('ajaxFail');
-              function() {
-                alert("getAjaxFail called!")
-              };
+        // TODO: magicallyResolveCallback('ajaxFail');
+        function() {
+          alert("Whoops. getAjaxFail called?!")
+        };
       return callback;
     },
 

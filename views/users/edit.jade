@@ -9,17 +9,17 @@ block content
     .row
       .col-sm-6: .form-group
         label.sr-only Username
-        input.input-lg.form-control(type="text", name="username", placeholder="Username")
+        input.input-lg.form-control(type="text", name="username", value=user.username, placeholder="Username", disabled)
       .col-sm-6: .form-group
         label.sr-only Email
         input.input-lg.form-control(type="email", name="email", placeholder="Email", disabled)
     .row
       .col-sm-6: .form-group
         label.sr-only First Name
-        input.input-lg.form-control(type="text", name="first_name", placeholder="First Name")
+        input.input-lg.form-control(type="text", name="first_name", value=user.first_name, placeholder="First Name")
       .col-sm-6: .form-group
         label.sr-only Last Name
-        input.input-lg.form-control(type="text", name="last_name", placeholder="Last Name")
+        input.input-lg.form-control(type="text", name="last_name", value=user.last_name, placeholder="Last Name")
     .row
       .col-sm-6: .form-group
         label.sr-only Password

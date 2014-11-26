@@ -7,14 +7,14 @@ block content
     .col-sm-8
       .clear-fix
         a.btn.btn-small.btn-danger.pull-right(
-        href="/users/@" + user.username + "/edit",
-        data-http-method="DELETE"
-        data-confirm-msg="Destroy @#{user.username}?!"
-        data-ajax-success="redirect_to_users"
+          href="/users/@" + user.username + "/edit",
+          data-http-method="DELETE"
+          data-confirm-msg="Destroy @#{user.username}?!"
+          data-ajax-success="redirect_to_users"
         )
           span.glyphicon.glyphicon-remove
           | &nbsp;Destroy @#{user.username}
-        a.btn.btn-small.btn-info(href="/users/@" + user.username + "/edit")
+        a.btn.btn-small.btn-info(href="/users/@" + user.username)
           span.glyphicon.glyphicon-edit
           | &nbsp;Edit @#{user.username}
       hr

@@ -13,7 +13,6 @@ router.param('username', function(req, res, next, username) {
   }).exec(function(err, user) {
     // if (err) return res.redirect('users');
     req.user = user;
-    console.log(user);
     next();
   });
 });
