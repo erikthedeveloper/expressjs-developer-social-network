@@ -8,12 +8,11 @@ var mongoose = require('mongoose');
 
 
 // Load private config (not tracked in repository)
-var config_private = require('./config_private');
 
 /**
  * Connect to MongoDB
  */
-mongoose.connect(config_private.mongodb.connect_string);
+mongoose.connect(process.env.MONGODB_CONNECT);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
