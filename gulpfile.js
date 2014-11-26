@@ -1,7 +1,6 @@
 var gulp       = require('gulp'),
     livereload = require('gulp-livereload'),
     express_server = require('gulp-express'),
-    //run        = require('gulp-run'),
     sass       = require('gulp-sass');
 
 gulp.task('js_vendor', function() {
@@ -50,6 +49,12 @@ gulp.task('watch', function() {
         }, 1000);
       });
 });
+
+gulp.task('build', [
+  'js_vendor',
+  'js_main',
+  'sass'
+]);
 
 gulp.task('default', [
   'js_vendor',
