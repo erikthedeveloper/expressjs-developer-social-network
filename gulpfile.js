@@ -1,5 +1,6 @@
 var gulp       = require('gulp'),
     livereload = require('gulp-livereload'),
+    express_server = require('gulp-express'),
     //run        = require('gulp-run'),
     sass       = require('gulp-sass');
 
@@ -28,11 +29,10 @@ gulp.task('sass', function() {
 });
 
 gulp.task('express', function() {
-  var debug = require('debug');
-  var app = require('./app');
-  app.set('port', process.env.PORT || 3000);
-  var server = app.listen(app.get('port'), function() {
-    debug('Express server listening on port ' + server.address().port);
+  console.log('Starting Express Server...');
+  express_server.run({
+    file: 'bin/www',
+    port: 35730
   });
 });
 
@@ -40,16 +40,21 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('assets/styles/**/*.scss', ['sass']);
   gulp.watch('assets/scripts/**/*.js', ['js_main']);
-  gulp.watch([
-        'public/**',
-        'views/**'
-      ]
-  ).on('change', livereload.changed);
+  gulp.watch(['public/**', 'views/**'])
+      .on('change', livereload.changed);
+
+  gulp.watch(['./*.js', 'routes/**/*.js'], ['express'])
+      .on('change', function(event) {
+        setTimeout(function() {
+          livereload.changed(event.path);
+        }, 1000);
+      });
 });
 
 gulp.task('default', [
   'js_vendor',
   'js_main',
   'sass',
+  'express',
   'watch'
 ]);
